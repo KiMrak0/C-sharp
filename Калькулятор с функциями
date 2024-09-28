@@ -1,0 +1,83 @@
+using System;
+using System.Collections.Generic;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading.Channels;
+
+namespace Tranning
+{
+    class Programm
+    {
+        public static void Main()
+        {
+            Console.WriteLine("Добро пожаловать в калькулятор online без смс и регистрации");
+            Console.Write("Напишите первое число : ");
+            int a = int.Parse(Console.ReadLine());
+            if(a == 0)
+            {
+                Console.WriteLine("Ноль запрещён!");
+                return;
+            }
+            Console.Write("Напишите второе число : ");
+            int b = int.Parse(Console.ReadLine());
+            if (b == 0)
+            {
+                Console.WriteLine("Ноль запрещён!");
+                return;
+            }
+            Console.Write("Выберите математическое действие: + - / * % : ");
+            char mat = Convert.ToChar(Console.ReadLine());
+            
+            switch (mat)
+            {
+                case '+':
+                    Console.WriteLine(sloze(a,b));
+                    break;
+                case '-':
+                    Console.WriteLine(viche(a,b));
+                    break;
+                case '*':
+                    Console.WriteLine(umnoj(a, b));
+                    break;
+                case '/':
+                    Console.WriteLine(delen(a, b));
+                    break;
+                case '%':
+                    Console.WriteLine(ostatok(a, b));
+                    break;
+                default:
+                    Console.WriteLine("Нет такого математического действия");
+                    break;
+
+            }
+        }
+        public static int sloze (int a, int b)
+        {
+            int c = 0;
+            c = a += b ; return c;
+        }
+        public static int viche (int a, int b)
+        {
+            int c = 0;
+            c = a - b ; return c;
+        }
+        public static int umnoj (int a, int b)
+        {
+            int c = 0;
+            c = a * b ; return c;
+        }
+        public static float delen (float a, float b)
+        {
+            float c = 0;
+            c = a / b ; return c;
+        }
+        public static double ostatok (double a, double b)
+        {
+            double c = 0;
+            c = a % b ; return c;
+        }
+
+
+    }
+}
+
